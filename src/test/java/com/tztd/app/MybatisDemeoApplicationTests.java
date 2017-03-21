@@ -6,6 +6,7 @@ import com.tztd.app.mapper.PersonCustomMapper;
 import com.tztd.app.mapper.PersonMapper;
 import com.tztd.app.model.Person;
 import com.tztd.app.pojo.PersonPojo;
+import lombok.extern.java.Log;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Log
 public class MybatisDemeoApplicationTests {
 	@Autowired
 	private PersonCustomMapper personCustomMapper;
@@ -51,6 +53,7 @@ public class MybatisDemeoApplicationTests {
 		int pageNum = pageInfo.getPageNum();
 		int nextPage = pageInfo.getNextPage();
 		int navigatePages = pageInfo.getNavigatePages();
+		log.info(JSON.toJSONString(pageInfo));
 		System.out.println(JSON.toJSONString(pageInfo));
 	}
 
