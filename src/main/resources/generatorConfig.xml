@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="testTables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/mybatis_db" userId="root"
+			password="root">
+		</jdbcConnection>
+		<!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:yycg" 
+			userId="yycg"
+			password="yycg">
+		</jdbcConnection> -->
+
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
+			NUMERIC 类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- targetProject:生成PO类的位置 -->
+		<javaModelGenerator targetPackage="com.tztd.app.model"
+			targetProject=".\src\main\java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+        <!-- targetProject:mapper映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="com.tztd.app.mapper"
+			targetProject=".\src\main\resources">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+		<!-- targetPackage：mapper接口生成的位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.tztd.app.mapper"
+			targetProject=".\src\main\resources">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		<!-- 指定数据库表 -->
+		<table tableName="person"></table>
+		<!--<table tableName="prepaid_records"></table>
+		<table tableName="order_type"></table>
+		<table tableName="monthly_bill"></table>
+		<table tableName="depute_account"></table>-->
+		<!-- <table tableName="s_app_distribution"></table>
+		<table tableName="s_card_equipment_brand"></table>
+		<table tableName="s_card_equipment_carrier"></table>
+		<table tableName="s_card_equipment_district"></table>
+		<table tableName="s_card_event"></table>
+		<table tableName="s_card_recive"></table>
+		<table tableName="s_card_recive_brand"></table>
+		<table tableName="s_card_recive_carrier"></table>
+		<table tableName="s_card_recive_day"></table>
+		<table tableName="s_card_recive_district"></table>
+		<table tableName="s_card_recive_hour"></table>
+		<table tableName="s_card_view"></table>
+		<table tableName="s_card_view_brand"></table>
+		<table tableName="s_card_view_carrier"></table>
+		<table tableName="s_card_view_district"></table>
+		<table tableName="s_destrict_distribution"></table>
+		<table tableName="s_equipment_model_brand"></table>
+		<table tableName="s_equipment_model_os"></table>
+		<table tableName="s_equipment_model_type"></table>
+		<table tableName="s_equipment_new"></table>
+		<table tableName="s_equipment_recive"></table>
+		<table tableName="s_menu_click_day"></table>
+		<table tableName="s_menu_click_hour"></table>
+		<table tableName="s_menu_event"></table> -->
+		<!-- <table tableName="s_custom_event"></table>
+		<table tableName="s_card_msg"></table>
+		<table tableName="s_user_log"></table>
+		<table tableName="s_equipment_info"></table> -->
+		<!-- <table schema="" tableName="sys_user"></table>
+		<table schema="" tableName="sys_role"></table>
+		<table schema="" tableName="sys_permission"></table>
+		<table schema="" tableName="sys_user_role"></table>
+		<table schema="" tableName="sys_role_permission"></table> -->
+		
+		<!-- 有些表的字段需要指定java类型
+		 <table schema="" tableName="">
+			<columnOverride column="" javaType="" />
+		</table> -->
+	</context>
+</generatorConfiguration>
