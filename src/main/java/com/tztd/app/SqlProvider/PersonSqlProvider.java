@@ -1,16 +1,52 @@
 package com.tztd.app.SqlProvider;
 
+import com.tztd.app.model.Person;
+import com.tztd.app.pojo.PersonPojo;
 import org.apache.ibatis.jdbc.SQL;
+import org.springframework.util.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/22.
  */
 public class PersonSqlProvider {
-    private static final String colunms="id,name,sex,age";
-    public String findNewListByPojo(){
+    private static final String colunms = "id,name,sex,age";
+
+    public String findNewListByPojo(PersonPojo personPojo) {
         SQL sql = new SQL();
-        sql= sql.SELECT(colunms).FROM("person").WHERE("name like '${person.name}'");
+        String[] sql_c = sql_con(personPojo);
+        if (sql_c != null && sql_c.length > 0) {
+            sql = sql.SELECT(colunms).FROM("person").WHERE(sql_c);
+        }
         return sql.toString();
+    }
+
+    private String[] sql_con(PersonPojo personPojo) {
+        List<String> list = new ArrayList<>();
+        String[] strs=null;
+        if (personPojo != null) {
+            Person person = personPojo.getPerson();
+            if (person != null) {
+                if (!StringUtils.isEmpty(person.getName())) {
+                    String name = person.getName();
+                    if (name.endsWith("_like")) {
+                        name = name.split("_like")[0];
+                        list.add("name like '%" + name + "%'");
+                    } else {
+                        list.add("name =" + name);
+                    }
+                }
+            }
+        }
+        if (list.size()>0){
+            strs=new String[list.size()];
+            for (int i=0;i<list.size();i++) {
+                strs[i]=list.get(i);
+            }
+        }
+        return strs;
     }
     /*public static void main(String[] args) {
         SQL sql_insert=new SQL();
