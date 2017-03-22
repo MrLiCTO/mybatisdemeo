@@ -37,7 +37,7 @@ public class MybatisDemeoApplicationTests {
 		}*/
 		PersonPojo personPojo=new PersonPojo();
 		Person person=new Person();
-		person.setName("可以");
+		person.setName("可以_like");
 		personPojo.setPerson(person);
 		personPojo.setPageNum(10L);
 		personPojo.setPageSize(10L);
