@@ -44,7 +44,7 @@ public class MybatisDemeoApplicationTests {
 		//PageHelper.startPage(1,10);
 		//List<Person> list = personCustomMapper.findList("%可以%");
 		//List<Person> list = personCustomMapper.selectAllByName(personPojo);
-		List<Person> list = personCustomMapper.findListByPojo(personPojo);
+		List<Person> list = personCustomMapper.findNewListByPojo(personPojo);
 		//List<Person> list = personMapper.selectByExample(new PersonExample());
 		PageInfo<Person> pageInfo = new PageInfo<>(list,12);
 		List<Person> persons = pageInfo.getList();
