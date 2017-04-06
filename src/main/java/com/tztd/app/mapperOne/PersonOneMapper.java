@@ -1,4 +1,4 @@
-package com.tztd.app.mapper;
+package com.tztd.app.mapperOne;
 
 import com.tztd.app.model.Person;
 import com.tztd.app.model.PersonExample;
@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 @Mapper
-public interface PersonMapper {
+public interface PersonOneMapper {
     long countByExample(PersonExample example);
 
     int deleteByExample(PersonExample example);

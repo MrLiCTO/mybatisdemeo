@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tztd.app.mapper.PersonCustomMapper">
+<mapper namespace="com.tztd.app.mapperTwo.PersonCustomTwoMapper">
     <select id="selectAllByName" resultType="com.tztd.app.model.Person"
             parameterType="com.tztd.app.pojo.PersonPojo">
         select * from person

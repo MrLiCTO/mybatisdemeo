@@ -1,10 +1,6 @@
 spring:
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/mybatis_db
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.xa.DruidXADataSource
     initialSize: 5
     minIdle: 5
     maxActive: 20
@@ -19,6 +15,26 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     filters: stat,wall,log4j
     connectionProperties=druid.stat.mergeSql: true;druid.stat.slowSqlMillis=5000
+    one:
+      url: jdbc:mysql://localhost:3306/third_pay?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+    two:
+      url: jdbc:mysql://localhost:3306/second_pay?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+    three:
+      url: jdbc:mysql://localhost:3306/first_pay?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+  jta:
+    enabled: true
+    service: com.atomikos.icatch.standalone.UserTransactionServiceFactory
+    max-actives: 200
+    enable-logging: false
 pagehelper:
       helperDialect: mysql
       reasonable: true

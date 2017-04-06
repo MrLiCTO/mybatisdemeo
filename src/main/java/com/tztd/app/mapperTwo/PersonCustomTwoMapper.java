@@ -1,4 +1,4 @@
-package com.tztd.app.mapper;
+package com.tztd.app.mapperTwo;
 
 
 import com.tztd.app.SqlProvider.PersonSqlProvider;
@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.SelectProvider;
 import java.util.List;
 
 @Mapper
-public interface PersonCustomMapper {
+public interface PersonCustomTwoMapper {
     @Insert("INSERT INTO person(id,name,sex,age) VALUES(#{id},#{name},#{sex},#{age})")
     void save(Person person);
 
