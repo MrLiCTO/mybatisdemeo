@@ -29,7 +29,7 @@ public class MyBatisOne {
         return bean.getObject();
     }
 
-    /*@Bean(name = "transactionManagerOne")
+    /*@Bean(name = "transactionManagerOne")//分布式事务不能配置自由的事务管理器,否则分布式事务管理器无法起作用
     @Primary
     public DataSourceTransactionManager testTransactionManager(@Qualifier("oneDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
