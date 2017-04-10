@@ -19,6 +19,7 @@
 	</parent>
 
 	<properties>
+		<app.profile>dev</app.profile>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
@@ -78,6 +79,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>mybatis-demo</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
